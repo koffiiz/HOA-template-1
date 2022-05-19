@@ -1,0 +1,29 @@
+.hero.hero__wrapper {
+  min-height:calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero__heading {
+  font-size: 50px;
+  margin: 0;
+}
+
+.hero__sub-heading {
+  font-size: 18px;
+  margin: 0;
+}
+
+.hero__button {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  background-color: #047033;
+  font-weight: 500;
+  margin-top: 1rem;
+  font-size: 18px;
+  text-transform: uppercase;
+}

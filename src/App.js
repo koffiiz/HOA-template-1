@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header';
+import Hero from './components/hero';
+import GetSiteData from './services/siteData';
+import { useEffect, useState } from 'react';
 
 function App() {
-  return (
+  
+  const [globalSiteDatas, setglobalSiteData] = useState();
+
+  const globalSiteData = async () => {
+      const siteData =  await GetSiteData();
+      setglobalSiteData(siteData);
+  }
+
+  useEffect(() => {
+    globalSiteData();
+  }, []);
+
+  return globalSiteDatas ? (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <Header globalSiteData={globalSiteDatas}> </Header>
       </header>
+      <main>
+          <Hero globalSiteData={globalSiteDatas}> </Hero>
+      </main>
     </div>
-  );
+  ) : null;
 }
 
 export default App;
